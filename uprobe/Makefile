@@ -1,8 +1,9 @@
-BIN_DIR := ./../../bin
+ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+BIN_DIR := $(ROOT_DIR)/../bin
 APP_DIR := server
 TRACER_DIR := tracer
 APP_BINARY := $(BIN_DIR)/uprobe_app
-TRACER_BINARY := $(BIN_DIR)/uprobe_trace
+TRACER_BINARY := $(BIN_DIR)/uprobe_tracer_app
 
 # Default target to build everything
 all: clean download generate build-app build-tracer
@@ -10,6 +11,10 @@ all: clean download generate build-app build-tracer
 # Build the application binary
 build-app:
 	cd $(APP_DIR) && go build -o $(APP_BINARY) ./server.go
+
+# Build the tracer binary
+build-tracer:
+	cd $(TRACER_DIR) && go build -o $(TRACER_BINARY) main.go bpf_bpfel.go
 
 # Generate BPF additional files required by the tracer
 generate:
@@ -19,10 +24,6 @@ generate:
 download:
 	cd $(TRACER_DIR) && go mod download
 
-# Build the tracer binary
-build-tracer:
-	cd $(TRACER_DIR) && go build -o $(TRACER_BINARY) main.go bpf_bpfel.go
-
 # Clean up generated binaries
 clean:
 	rm -f $(APP_BINARY)
@@ -30,11 +31,11 @@ clean:
 
 # Run the application
 run-app:
-	$(APP_BINARY)
+	@$(APP_BINARY)
 
 # Run the tracer with sudo privileges
-run-trace:
-	sudo $(TRACER_BINARY)
+run-tracer:
+	@$(TRACER_BINARY) --binary=$(APP_BINARY)
 
 # Read the debug tracing information
 debug:

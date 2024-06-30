@@ -29,7 +29,7 @@ uprobe/
 2. Run the Go application:
 ``make run-app``
 3. In a new terminal, run the tracer with sudo privileges:
-``make run-trace``
+``sudo make run-tracer``
 4. Acess the Go application with cURL:
 ``curl localhost:8080?arg=42``
 5. Observe the tracer output in the terminal running the tracer.

@@ -5,6 +5,7 @@ import (
 	"encoding/binary"
 	"errors"
 	"flag"
+	"fmt"
 	"log"
 	"os"
 	"os/signal"
@@ -25,7 +26,7 @@ var (
 
 // Initialize command line flags
 func init() {
-	flag.StringVar(&binaryProg, "binary", "./uprobe_app", "The path to the app binary to trace")
+	flag.StringVar(&binaryProg, "binary", "./../bin/uprobe_app", "The path to the app binary to trace")
 	flag.StringVar(&traceFn, "func", "main.demo", "The function to trace")
 }
 
@@ -39,6 +40,13 @@ func main() {
 	if err := rlimit.RemoveMemlock(); err != nil {
 		log.Fatal(err)
 	}
+
+	pwd, err := os.Getwd()
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	fmt.Println("Current working directory:", pwd)
 
 	// Load BPF objects
 	objs := bpfObjects{}
@@ -76,7 +84,7 @@ func main() {
 		}
 	}()
 
-	log.Println("Waiting for BPf events...")
+	log.Println("Waiting for BPF events...")
 
 	var event bpfEvent
 
