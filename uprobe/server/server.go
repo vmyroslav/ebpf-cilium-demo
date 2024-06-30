@@ -13,8 +13,7 @@ func demo(arg uint32) {
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		arg := r.URL.Query().Get("arg")
-		i, _ := strconv.Atoi(arg)
+		i, _ := strconv.Atoi(r.URL.Query().Get("arg"))
 		demo(uint32(i))
 	})
 
