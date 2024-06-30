@@ -1,14 +1,19 @@
 package main
 
 import (
+	"flag"
 	"fmt"
+	"log"
 	"net/http"
 	"strconv"
 )
 
-//go:noinline
-func demo(arg uint32) {
-	fmt.Println(arg)
+var (
+	port string
+)
+
+func init() {
+	flag.StringVar(&port, port, "8090", "The port to listen on")
 }
 
 func main() {
@@ -17,5 +22,13 @@ func main() {
 		demo(uint32(i))
 	})
 
-	_ = http.ListenAndServe(":8080", nil)
+	log.Println("Starting server on :" + port)
+	if err := http.ListenAndServe(port, nil); err != nil {
+		log.Fatal(fmt.Errorf("failed to start server: %w", err))
+	}
+}
+
+//go:noinline
+func demo(arg uint32) {
+	fmt.Println("call received with arg:", arg)
 }
