@@ -2,7 +2,7 @@ module tracer
 
 go 1.22
 
-require github.com/cilium/ebpf v0.12.3
+require github.com/cilium/ebpf v0.15.0
 
 require (
 	github.com/frankban/quicktest v1.14.6 // indirect

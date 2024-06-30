@@ -31,7 +31,7 @@ clean:
 
 # Run the application
 run-app:
-	@$(APP_BINARY) --port=8090
+	@$(APP_BINARY) --port=8091
 
 # Run the tracer with sudo privileges
 run-tracer:
