@@ -25,7 +25,7 @@ var (
 )
 
 func init() {
-	flag.StringVar(&binaryProg, "binary", "./../server/app", "The binary to probe")
+	flag.StringVar(&binaryProg, "binary", "./../bin/uprobe_time_app", "The path to the app binary to trace")
 	flag.StringVar(&entryFn, "entry", "main.entryMarker", "The entry function to trace")
 	flag.StringVar(&exitFn, "exit", "main.exitMarker", "The exit function to trace")
 }
@@ -95,6 +95,14 @@ func main() {
 		}
 
 		duration := time.Duration(event.EndTime - event.StartTime)
-		log.Printf("Function execution time: %s\n", duration)
+		log.Printf(
+			ColorReset+"the function execution time took:"+ColorGreen+"%d"+ColorReset+"\n",
+			duration,
+		)
 	}
 }
+
+const (
+	ColorReset = "\033[0m"
+	ColorGreen = "\033[32m"
+)
