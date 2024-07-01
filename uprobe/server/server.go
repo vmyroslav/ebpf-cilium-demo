@@ -23,12 +23,12 @@ func main() {
 	})
 
 	log.Println("Starting server on :" + port)
-	if err := http.ListenAndServe(port, nil); err != nil {
+	if err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil); err != nil {
 		log.Fatal(fmt.Errorf("failed to start server: %w", err))
 	}
 }
 
 //go:noinline
 func demo(arg uint32) {
-	fmt.Println("call received with arg:", arg)
+	fmt.Println("call received with an argument:", arg)
 }

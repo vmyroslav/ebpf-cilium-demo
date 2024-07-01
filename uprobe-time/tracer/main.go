@@ -94,9 +94,9 @@ func main() {
 			continue
 		}
 
-		duration := time.Duration(event.EndTime - event.StartTime)
+		duration := time.Duration(event.EndTime - event.StartTime).Milliseconds()
 		log.Printf(
-			ColorReset+"the function execution time took:"+ColorGreen+"%d"+ColorReset+"\n",
+			ColorReset+"the function execution time took: "+ColorGreen+"%d"+ColorReset+" ms\n",
 			duration,
 		)
 	}

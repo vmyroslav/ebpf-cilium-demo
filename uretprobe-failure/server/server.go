@@ -31,7 +31,7 @@ func main() {
 	})
 
 	log.Println("Starting server on :" + port)
-	if err := http.ListenAndServe(port, nil); err != nil {
+	if err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil); err != nil {
 		log.Fatal(fmt.Errorf("failed to start server: %w", err))
 	}
 }
