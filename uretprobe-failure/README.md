@@ -54,6 +54,6 @@ uRetprobes can crash Go programs due to several reasons:
 1. **Inlining and Optimizations**: Go's compiler performs optimizations, including inlining. When a function is inlined, there is no clear return point to attach a uRetprobe, leading to unpredictable behavior if you try to attach a uRetprobe to such functions.
 2. **Stack Traces and Return Addresses**: Go maintains its own stack frames and return addresses, which might not align with what the eBPF program expects. Attaching a uRetprobe could disrupt these stack frames, causing the program to crash when it attempts to unwind the stack or return to a corrupted address.
 
-You can find more information about these issues in this: [GitHub issue](https://github.com/iovisor/bcc/issues/1320)
+You can find more information about these issues in this: [GitHub issue](https://github.com/iovisor/bcc/issues/1320) and good description of what happens under the hood [here](https://github.com/golang/go/issues/22008#issuecomment-523237105).
 
 To avoid these issues, consider using uProbes or other tracing mechanisms that are more compatible with Go's runtime and function handling.
