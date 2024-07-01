@@ -2,8 +2,8 @@ ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 BIN_DIR := $(ROOT_DIR)/../bin
 APP_DIR := server
 TRACER_DIR := tracer
-APP_BINARY := $(BIN_DIR)/uprobe_time_app
-TRACER_BINARY := $(BIN_DIR)/uprobe_time_tracer_app
+APP_BINARY := $(BIN_DIR)/ureprobe_app
+TRACER_BINARY := $(BIN_DIR)/ureprobe_tracer_app
 
 # Default target to build everything
 all: clean download generate build-app build-tracer
@@ -31,7 +31,7 @@ clean:
 
 # Run the application
 run-app:
-	@$(APP_BINARY) --port=8090
+	@$(APP_BINARY) --port=8092
 
 # Run the tracer with sudo privileges
 run-tracer:

@@ -46,12 +46,12 @@ func main() {
 
 	ex, err := link.OpenExecutable(binaryProg)
 	if err != nil {
-		log.Fatalf("opening uprobe executable: %s", err)
+		log.Fatalf("failed to open uprobe executable: %s", err)
 	}
 
 	entryProbe, err := ex.Uprobe(entryFn, objs.UprobeEntryMarker, nil)
 	if err != nil {
-		log.Fatalf("creating entry uprobe: %s", err)
+		log.Fatalf("failed to create entry uprobe: %s", err)
 	}
 	defer entryProbe.Close()
 
