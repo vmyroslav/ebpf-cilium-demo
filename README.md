@@ -56,6 +56,7 @@ Here are some useful resources to understand eBPF, Go, and their integration:
 - [Cilium eBPF Documentation](https://ebpf-go.dev)
 - [Series of good blog posts](https://intelops.ai/learning-center/2-learn-ebpf/)
 - [List of BPF helper functions](https://ebpf-docs.dylanreimerink.nl/linux/helper-function/)
+- [Go opentelemetery instrumentation](https://github.com/open-telemetry/opentelemetry-go-instrumentation)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
