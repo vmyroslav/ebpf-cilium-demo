@@ -2,16 +2,11 @@
 
 This repository contains multiple demos showcasing the usage of eBPF with Cilium for Go applications. Each demo is designed to highlight different aspects of eBPF and its interaction with Go applications, including uProbes, uRetprobes, and function execution time tracking.
 
-## Table of Contents
+## Overview
+Each folder within this repository contains a specific demo illustrating a unique feature of eBPF and its integration with Go applications. The demos include:
 1. [Overview](#overview)
 2. [How Kernel Space and User Space Interacts in this examples](#how-kernel-space-and-user-space-interacts-in-this-examples)
 3. [Useful Resources](#useful-resources)
-
-## Overview
-Each folder within this repository contains a specific demo illustrating a unique feature of eBPF and its integration with Go applications. The demos include:
-- [Using uProbes with eBPF](uprobe/)
-- [Tracking Function Execution Time with eBPF](uprobe-time/)
-- [Understanding Potential Crashes Caused by uRetprobes in Go Applications](uretprobe-failure/)
 
 For more details on each demo, please refer to the README file within the respective demo folder.
 
