@@ -16,6 +16,7 @@ Each folder within this repository contains a specific demo illustrating a uniqu
 For more details on each demo, please refer to the README file within the respective demo folder.
 
 ## How Kernel Space and User Space Interacts in this examples
+
 ```mermaid
 graph TD
     subgraph User Space
@@ -49,17 +50,9 @@ Here are some useful resources to understand eBPF, Go, and their integration:
 - [Great Medium Article on BPF and Go](https://medium.com/bumble-tech/bpf-and-go-modern-forms-of-introspection-in-linux-6b9802682223)
 - [Liz Rice's Talk on eBPF](https://www.youtube.com/watch?v=Hed2DOrk_kk)
 - [Pixie Demo on eBPF](https://github.com/pixie-io/pixie-demos/tree/main/simple-gotracing)
-- [Cilium eBPF Documentation](https://docs.cilium.io/en/stable/bpf/)
-- [eBPF Tracing and uProbes](https://www.kernel.org/doc/html/latest/bpf/bpf_devel_QA.html#why-my-uretprobe-program-crashes)
-- [Introduction to eBPF](https://ebpf.io/what-is-ebpf/)
+- [Cilium eBPF Documentation](https://ebpf-go.dev)
+- [Series of good blog posts](https://intelops.ai/learning-center/2-learn-ebpf/)
+- [List of BPF helper functions](https://ebpf-docs.dylanreimerink.nl/linux/helper-function/)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-
-Links:
-
-- [Great intro](https://medium.com/bumble-tech/bpf-and-go-modern-forms-of-introspection-in-linux-6b9802682223)
-- [Talk from Liz Rice](https://www.youtube.com/watch?v=Hed2DOrk_kk)
-- [Pixie demo](https://github.com/pixie-io/pixie-demos/tree/main/simple-gotracing)
-- [Cilium eBPF](https://github.com/cilium/ebpf)
