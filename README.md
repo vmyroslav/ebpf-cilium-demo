@@ -5,10 +5,18 @@ This repository contains multiple demos showcasing the usage of eBPF with Cilium
 ## Overview
 Each folder within this repository contains a specific demo illustrating a unique feature of eBPF and its integration with Go applications. The demos include:
 1. [Overview](#overview)
-2. [How Kernel Space and User Space Interacts in this examples](#how-kernel-space-and-user-space-interacts-in-this-examples)
-3. [Useful Resources](#useful-resources)
+2. [Prerequisites](#prerequisites)
+3. [How Kernel Space and User Space Interacts in this examples](#how-kernel-space-and-user-space-interacts-in-this-examples)
+4. [Useful Resources](#useful-resources)
 
 For more details on each demo, please refer to the README file within the respective demo folder.
+
+## Prerequisites
+To run these demos, you need a Linux system with the following tools and packages installed:
+- **Linux Kernel**: Version 4.15 or higher with BPF enabled.
+- **bcc tools**: BPF Compiler Collection tools.
+- **clang and llvm**: Required for compiling eBPF programs.
+- **Go**: Version 1.22 or higher.
 
 ## How Kernel Space and User Space Interacts in this examples
 
